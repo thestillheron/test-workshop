@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheStillHeron.TestWorkshop", "TheStillHeron.TestWorkshop\TheStillHeron.TestWorkshop.csproj", "{D08086EF-5995-401C-83CC-DF604B35AB07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheStillHeron.TestWorkshop.Console", "TheStillHeron.TestWorkshop.Console\TheStillHeron.TestWorkshop.Console.csproj", "{D08086EF-5995-401C-83CC-DF604B35AB07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
