@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace TheStillHeron.TestWorkshop.Console.DataTransferModels
+namespace TheStillHeron.TestWorkshop.Console.Weather
 {
     public class WeatherResponse
     {

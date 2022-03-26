@@ -2,9 +2,8 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
-using TheStillHeron.TestWorkshop.Console.DataTransferModels;
 
-namespace TheStillHeron.TestWorkshop.Console
+namespace TheStillHeron.TestWorkshop.Console.Weather
 {
     public class WeatherApiClient
     {

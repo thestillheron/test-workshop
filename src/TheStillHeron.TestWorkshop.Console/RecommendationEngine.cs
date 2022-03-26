@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using TheStillHeron.TestWorkshop.Console.Weather;
 
 namespace TheStillHeron.TestWorkshop.Console
 {
