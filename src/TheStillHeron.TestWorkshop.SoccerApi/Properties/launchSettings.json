@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:31095",
-      "sslPort": 44381
+      "applicationUrl": "http://localhost:57053",
+      "sslPort": 44367
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TheStillHeron.TestWorkshop.BudgetApi": {
+    "TheStillHeron.TestWorkshop.SoccerApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

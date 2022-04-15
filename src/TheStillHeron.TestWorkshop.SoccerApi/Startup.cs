@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TheStillHeron.TestWorkshop.BudgetApi
+namespace TheStillHeron.TestWorkshop.SoccerApi
 {
     public class Startup
     {
