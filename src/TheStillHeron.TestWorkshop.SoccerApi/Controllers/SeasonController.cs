@@ -34,7 +34,8 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.Controllers
         public ActionResult<Season> Get()
         {
             var currentSeason = Environment.GetEnvironmentVariable("CURRENT_SEASON");
-            return _seasonRepository.Get(currentSeason);
+            var command = new GetSeason(_seasonRepository);
+            return command.Execute(currentSeason);
         }
 
         [HttpGet("/match")]

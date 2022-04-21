@@ -18,7 +18,10 @@ namespace TheStillHeron.TestWorkshop.Console
             using IHost host = Host.CreateDefaultBuilder()
                 .UseEnvironment(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"))
                 .Build();
+
             var config = host.Services.GetRequiredService<IConfiguration>();
+
+            // ex.1
             var engine = new RecommendationEngine(config);
             System.Console.WriteLine(await engine.GetRecommendation());
 

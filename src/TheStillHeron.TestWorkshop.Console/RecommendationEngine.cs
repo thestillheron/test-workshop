@@ -11,10 +11,12 @@ namespace TheStillHeron.TestWorkshop.Console
 
         public RecommendationEngine(IConfiguration config)
         {
+            // ex.1
             _config = config;
         }
         public async Task<string> GetRecommendation()
         {
+            // ex.1
             var apiClient = new WeatherApiClient(_config);
             var currentWeather = await apiClient.GetCurrentWeather();
             var feelsLike = currentWeather.Main.FeelsLike;

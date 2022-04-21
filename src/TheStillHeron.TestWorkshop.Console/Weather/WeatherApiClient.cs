@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace TheStillHeron.TestWorkshop.Console.Weather
 {
+    // ex.1
     public class WeatherApiClient
     {
         private HttpClient _httpClient;

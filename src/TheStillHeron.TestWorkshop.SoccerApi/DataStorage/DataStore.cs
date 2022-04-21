@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TheStillHeron.TestWorkshop.SoccerApi.DataStorage
 {
@@ -8,7 +9,7 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.DataStorage
 
         T Get<T>(string tableName, System.Guid id) where T : IStorable;
 
-        ICollection<T> Get<T>(string tableName) where T : IStorable;
+        IList<T> Get<T>(string tableName) where T : IStorable;
     }
 
     public class DataStore : IDataStore
@@ -46,10 +47,12 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.DataStorage
             return (T)_database[tableName][id];
         }
 
-        public ICollection<T> Get<T>(string tableName) where T : IStorable
+        public IList<T> Get<T>(string tableName) where T : IStorable
         {
             PutTable(tableName);
-            return (ICollection<T>)_database[tableName].Values;
+            return _database[tableName].Values
+                .Select(x => (T)x)
+                .ToList();
         }
     }
 }
