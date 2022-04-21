@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace TheStillHeron.TestWorkshop.Console.Test
 {
-    public class Tests
+    public class RecommendationEngineTest
     {
         [Test]
         public async Task When_Rain_Is_Predicted_Umbrella_Is_Recommended()

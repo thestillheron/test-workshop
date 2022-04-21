@@ -10,35 +10,27 @@ namespace TheStillHeron.TestWorkshop.Console.FamilyPlanning
     }
     public class Chore
     {
-        private string _name;
+        public string Name { get; set; }
 
-        private ChoreCadence _cadence;
+        public ChoreCadence Cadence { get; set; }
 
         /// <summary>
         /// The date from which we measure to decide if the chore is due again.
         /// E.g. If the cadence is weekly, and the origin date is a Tuesday, the chore will be due on Tuesday
         /// </summary>
-        private DateTime _originDate;
-
-        public Chore(string name, ChoreCadence cadence, DateTime originDate)
-        {
-            _name = name;
-            _originDate = originDate;
-            _cadence = cadence;
-        }
-
-        public string Name => _name;
+        public DateTime OriginDate { get; set; }
 
         public bool IsDue()
         {
-            switch (_cadence)
+            // ex.2
+            switch (Cadence)
             {
                 case ChoreCadence.Daily:
                     return true;
                 case ChoreCadence.Weekly:
-                    return _originDate.DayOfWeek == DateTime.Today.DayOfWeek;
+                    return OriginDate.DayOfWeek == DateTime.Today.DayOfWeek;
                 case ChoreCadence.Monthly:
-                    return _originDate.Day == DateTime.Today.Day;
+                    return OriginDate.Day == DateTime.Today.Day;
                 default:
                     return false;
             }

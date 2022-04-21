@@ -6,29 +6,45 @@ namespace TheStillHeron.TestWorkshop.Console.FamilyPlanning
 {
     public class FamilyPlanner
     {
-        private IList<FamilyMember> _familyMembers;
+        public IList<FamilyMember> FamilyMembers { get; set; }
 
-        private IList<Event> _events;
-
-        public FamilyPlanner()
+        public string DayPlan()
         {
-            _familyMembers = new List<FamilyMember>();
-            _events = new List<Event>();
-        }
+            // ex.2
+            var plan = "";
 
-        public void AddFamilyMember(string name, IEnumerable<Chore> eligibleChores)
-        {
-            _familyMembers.Add(new FamilyMember(this, name, eligibleChores));
-        }
-
-        public void AddEvent(string title, IEnumerable<FamilyMember> attendees, DateTime occursOn)
-        {
-            if (attendees.Any(a => !_familyMembers.Any(fm => fm.Name == a.Name)))
+            foreach (var member in FamilyMembers)
             {
-                throw new Exception("Tried to add an attendee that is not a member of the family");
+                plan += member.Chores
+                    .Where(x => x.IsDue())
+                    .Select(x => x.Name)
+                    .Aggregate((total, item) => $"{total}\n{member.Name}: {item}");
             }
 
-            this._events.Add(new Event(this, attendees, title, occursOn));
+            return plan == "" ? "No chores today" : plan;
+        }
+
+        public static FamilyPlanner Basic()
+        {
+            return new FamilyPlanner
+            {
+                FamilyMembers = new List<FamilyMember>
+                {
+                    new FamilyMember
+                    {
+                        Name = "Elizabeth",
+                        Chores = new List<Chore>
+                        {
+                            new Chore
+                            {
+                                Name = "Sweeping",
+                                Cadence = ChoreCadence.Weekly,
+                                OriginDate = new DateTime(2022, 01, 01) // Saturday
+                            }
+                        }
+                    }
+                }
+            };
         }
     }
 }

@@ -23,4 +23,16 @@
 
 1. Talk the attendees through creating a mock (using moq) for the api
 
-##
+## Exercise Two instructions
+
+1. Have the attendees Ctrl+Shift+F for "e_x\_._2" (without the underscores)
+
+1. Draw the attendees attention to the test, and the fact that they cannot control whether it will pass because of the lack of determinism with system date times
+
+1. Talk the attendees through writing an abstraction to wrap System.DateTime
+
+1. Talk the attendees through providing that abstraction to the DayPlan() and IsDue() functions
+
+1. Talk the attendees through creating a mock for the abstraction to use in the test
+
+## Exercise Three instructions
