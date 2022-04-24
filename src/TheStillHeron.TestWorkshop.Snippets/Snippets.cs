@@ -1,24 +1,22 @@
 ﻿using System;
+using TheStillHeron.TestWorkshop.Console.Weather;
 
 namespace TheStillHeron.TestWorkshop.Snippets
 {
     // -- start snippet.1 --
-    using TheStillHeron.TestWorkshop.Console.Weather;
-    using System.Collections.Generic;
-
     var response = new WeatherResponse
     {
         Weather = new List<WeatherValue>{
             new WeatherValue
             {
-                Id = "123",
+                Id = 123,
                 Main = "Rain",
                 Description = "Some light showers"
             }
         },
         Main = new WeatherDetail
         {
-            Temp = 22.3,
+            Temp = 22.3f,
             FeelsLike = 23,
             Humidity = 78
         }

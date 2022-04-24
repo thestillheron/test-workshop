@@ -16,7 +16,7 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.Repository
 
         public Season GetCurrentSeason()
         {
-            var currentSeason = new Guid(Environment.GetEnvironmentVariable("CURRENT_SEASON"));
+            var currentSeason = Environment.GetEnvironmentVariable("CURRENT_SEASON");
             var season = _storage.Get<Season>(Season.TABLE_NAME, currentSeason);
             return season;
         }

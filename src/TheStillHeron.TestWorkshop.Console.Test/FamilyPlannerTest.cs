@@ -17,6 +17,8 @@ namespace TheStillHeron.TestWorkshop.Console.Test
             var dayPlan = familyPlanner.DayPlan();
 
             // Assert
+            // Hint: FamilyPlanner.Basic() makes it so that
+            // Elizabeth sweeps on Tuesdays
             Assert.That(dayPlan.Contains("Elizabeth: Sweeping"));
         }
     }

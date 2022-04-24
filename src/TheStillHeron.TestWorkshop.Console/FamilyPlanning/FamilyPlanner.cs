@@ -17,11 +17,15 @@ namespace TheStillHeron.TestWorkshop.Console.FamilyPlanning
             {
                 var chores = member.Chores
                     .Where(x => x.IsDue())
-                    .Select(x => x.Name);
+                    .Select(x => $"{member.Name}: {x.Name}");
 
                 if (chores.Count() > 0)
                 {
-                    plan += chores.Aggregate((total, item) => $"{total}\n{member.Name}: {item}");
+                    plan += chores.Aggregate((total, item) => $"{total}\n{item}");
+                }
+                else
+                {
+                    plan += $"{member.Name}: No chores today";
                 }
             }
 

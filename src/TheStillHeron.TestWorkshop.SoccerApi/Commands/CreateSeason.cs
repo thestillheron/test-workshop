@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TheStillHeron.TestWorkshop.SoccerApi.Domain;
 using TheStillHeron.TestWorkshop.SoccerApi.Repository;
 
@@ -14,12 +15,12 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.Commands
 
         public void Execute(string name, string year)
         {
-            var id = System.Guid.NewGuid();
             var season = new Season
             {
-                Id = id,
+                Id = year,
                 Name = name,
-                Year = year
+                Year = year,
+                Rounds = new List<Round>()
             };
             _repo.Put(season);
         }

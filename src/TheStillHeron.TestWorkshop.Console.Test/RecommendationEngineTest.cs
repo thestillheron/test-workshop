@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using Moq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using TheStillHeron.TestWorkshop.Console.Weather;
 
 namespace TheStillHeron.TestWorkshop.Console.Test
 {

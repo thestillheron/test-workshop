@@ -7,7 +7,7 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.DataStorage
     {
         void Put(string tableName, IStorable storableItem);
 
-        T Get<T>(string tableName, System.Guid id) where T : IStorable;
+        T Get<T>(string tableName, string id) where T : IStorable;
 
         IList<T> Get<T>(string tableName) where T : IStorable;
     }
@@ -16,28 +16,35 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.DataStorage
     {
         // This is a very rudimentary datbase - it has "tables" and you can store/retrieve things by id
         // We'll use this as a super-simple in-memory database to keep this api streamlined
-        private IDictionary<string, IDictionary<System.Guid, IStorable>> _database;
+        private IDictionary<string, IDictionary<string, IStorable>> _database;
 
         private void PutTable(string tableName)
         {
             if (!_database.ContainsKey(tableName))
             {
-                _database.Add(tableName, new Dictionary<System.Guid, IStorable>());
+                _database.Add(tableName, new Dictionary<string, IStorable>());
             }
         }
 
         public DataStore()
         {
-            _database = new Dictionary<string, IDictionary<System.Guid, IStorable>>();
+            _database = new Dictionary<string, IDictionary<string, IStorable>>();
         }
 
         public void Put(string tableName, IStorable storableItem)
         {
             PutTable(tableName);
-            _database[tableName].Add(storableItem.Id, storableItem);
+            if (!_database[tableName].ContainsKey(storableItem.Id))
+            {
+                _database[tableName].Add(storableItem.Id, storableItem);
+            }
+            else
+            {
+                _database[tableName][storableItem.Id] = storableItem;
+            }
         }
 
-        public T Get<T>(string tableName, System.Guid id) where T : IStorable
+        public T Get<T>(string tableName, string id) where T : IStorable
         {
             PutTable(tableName);
             if (!_database[tableName].ContainsKey(id))
