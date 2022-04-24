@@ -2,7 +2,7 @@
 
 ## Setup Instructions
 
-1. Have the attendees clone the repo, and checkout tag: `not-solved`
+1. Have the attendees clone the repo, and checkout tag: `unsolved`
 
 1. Have the workshop attendees set up an environment variable for:  
    `ASPNETCORE_ENVIRONMENT=development`
