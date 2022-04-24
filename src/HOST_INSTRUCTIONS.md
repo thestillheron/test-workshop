@@ -36,3 +36,5 @@
 1. Talk the attendees through creating a mock for the abstraction to use in the test
 
 ## Exercise Three instructions
+
+1. Have the attendees Ctrl+Shift+F for "e_x\_._1" (without the underscores)
