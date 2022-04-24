@@ -11,7 +11,9 @@
    `WeatherApiKey=<your weather api key>`
 
 1. Have the attendees run the console app to see that it works  
-   `dotnet run --project TheStillHeron.TestWorkshop.Console\TheStillHeron.TestWorkshop.Console.csproj`
+   `dotnet restore`
+   `cd TheStillHeron.TestWorkshop.Console`  
+   `dotnet run`
 
 ## Exercise One instructions
 

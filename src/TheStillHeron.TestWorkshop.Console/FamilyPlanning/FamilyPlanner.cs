@@ -15,10 +15,14 @@ namespace TheStillHeron.TestWorkshop.Console.FamilyPlanning
 
             foreach (var member in FamilyMembers)
             {
-                plan += member.Chores
+                var chores = member.Chores
                     .Where(x => x.IsDue())
-                    .Select(x => x.Name)
-                    .Aggregate((total, item) => $"{total}\n{member.Name}: {item}");
+                    .Select(x => x.Name);
+
+                if (chores.Count() > 0)
+                {
+                    plan += chores.Aggregate((total, item) => $"{total}\n{member.Name}: {item}");
+                }
             }
 
             return plan == "" ? "No chores today" : plan;
