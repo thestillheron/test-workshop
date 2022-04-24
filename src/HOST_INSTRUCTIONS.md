@@ -38,3 +38,7 @@
 ## Exercise Three instructions
 
 1. Have the attendees Ctrl+Shift+F for "e_x\_._1" (without the underscores)
+
+1. Draw the attendees attention to the test, and the fact that we can't get the match to confirm the outcome of the test
+
+1. Talk the attendees through refactoring the `get` endpoint into a command so it can be tested end-to-end easily
