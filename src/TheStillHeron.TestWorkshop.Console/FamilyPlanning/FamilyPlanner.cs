@@ -8,15 +8,14 @@ namespace TheStillHeron.TestWorkshop.Console.FamilyPlanning
     {
         public IList<FamilyMember> FamilyMembers { get; set; }
 
-        public string DayPlan()
+        public string DayPlan(IFamilyPlanningDateProvider dateProvider)
         {
-            // ex.2
             var plan = "";
 
             foreach (var member in FamilyMembers)
             {
                 var chores = member.Chores
-                    .Where(x => x.IsDue())
+                    .Where(x => x.IsDue(dateProvider))
                     .Select(x => $"{member.Name}: {x.Name}");
 
                 if (chores.Count() > 0)

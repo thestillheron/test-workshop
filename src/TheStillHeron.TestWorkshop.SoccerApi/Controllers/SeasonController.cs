@@ -41,20 +41,10 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.Controllers
         [HttpGet("/match")]
         public ActionResult<Match> GetMatch(int roundNumber, int matchNumber)
         {
-            // ex.3
-            var currentSeason = _seasonRepository.GetCurrentSeason();
-            var match = currentSeason
-                .Rounds.Where(x => x.RoundNumber == roundNumber)
-                .FirstOrDefault()
-                ?.Matches.Where(x => x.MatchNumber == matchNumber)
-                .FirstOrDefault();
+            var currentSeason = Environment.GetEnvironmentVariable("CURRENT_SEASON");
 
-            if (match == null)
-            {
-                return new NotFoundResult();
-            }
-
-            return match;
+            var getMatchCommand = new GetMatch(_seasonRepository);
+            return getMatchCommand.Execute(currentSeason, roundNumber, matchNumber);
         }
 
         [HttpPost]

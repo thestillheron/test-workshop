@@ -13,7 +13,29 @@ namespace TheStillHeron.TestWorkshop.Console.Test
         {
             // ex.1
             // Arrange
-            var engine = new RecommendationEngine(null);
+            var response = new WeatherResponse
+            {
+                Weather = new List<WeatherValue>{
+                    new WeatherValue
+                    {
+                        Id = 123,
+                        Main = "Rain",
+                        Description = "Some light showers"
+                    }
+                },
+                Main = new WeatherDetail
+                {
+                    Temp = 22.3f,
+                    FeelsLike = 23,
+                    Humidity = 78
+                }
+            };
+
+            var apiMock = new Mock<IWeatherApiClient>();
+            apiMock.Setup(x => x.GetCurrentWeather()).Returns(Task.FromResult(response));
+            var mock = apiMock.Object;
+
+            var engine = new RecommendationEngine(mock);
 
             // Act
             var recommendation = await engine.GetRecommendation();

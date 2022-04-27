@@ -5,8 +5,12 @@ using Microsoft.Extensions.Configuration;
 
 namespace TheStillHeron.TestWorkshop.Console.Weather
 {
-    // ex.1
-    public class WeatherApiClient
+    public interface IWeatherApiClient
+    {
+        Task<WeatherResponse> GetCurrentWeather();
+    }
+
+    public class WeatherApiClient : IWeatherApiClient
     {
         private HttpClient _httpClient;
         private string _latitude;

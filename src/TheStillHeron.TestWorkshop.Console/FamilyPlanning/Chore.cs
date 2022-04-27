@@ -20,17 +20,16 @@ namespace TheStillHeron.TestWorkshop.Console.FamilyPlanning
         /// </summary>
         public DateTime OriginDate { get; set; }
 
-        public bool IsDue()
+        public bool IsDue(IFamilyPlanningDateProvider dateProvider)
         {
-            // ex.2
             switch (Cadence)
             {
                 case ChoreCadence.Daily:
                     return true;
                 case ChoreCadence.Weekly:
-                    return OriginDate.DayOfWeek == DateTime.Today.DayOfWeek;
+                    return OriginDate.DayOfWeek == dateProvider.GetToday().DayOfWeek;
                 case ChoreCadence.Monthly:
-                    return OriginDate.Day == DateTime.Today.Day;
+                    return OriginDate.Day == dateProvider.GetToday().Day;
                 default:
                     return false;
             }

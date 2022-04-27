@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TheStillHeron.TestWorkshop.Console.FamilyPlanning;
+using TheStillHeron.TestWorkshop.Console.Weather;
 
 namespace TheStillHeron.TestWorkshop.Console
 {
@@ -23,14 +24,13 @@ namespace TheStillHeron.TestWorkshop.Console
 
             var config = host.Services.GetRequiredService<IConfiguration>();
 
-            // ex.1
-            var engine = new RecommendationEngine(config);
+            var apiClient = new WeatherApiClient(config);
+            var engine = new RecommendationEngine(apiClient);
             System.Console.WriteLine(await engine.GetRecommendation());
-            // end exercise 1
 
-            // ex.2
+            var dateProvider = new FamilyPlanningDateProvider();
             var familyPlanner = FamilyPlanner.Basic();
-            System.Console.WriteLine(familyPlanner.DayPlan());
+            System.Console.WriteLine(familyPlanner.DayPlan(dateProvider));
 
             // end exercise 2
 

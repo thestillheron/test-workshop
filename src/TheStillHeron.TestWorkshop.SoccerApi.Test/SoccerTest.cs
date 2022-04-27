@@ -62,7 +62,8 @@ namespace TheStillHeron.TestWorkshop.SoccerApi.Test
             // How can we fetch the match back?
             // At the moment we'd need to construct the controller
             // and invoke a method on it - that's frustrating!
-            Match match = null;
+            var getMatchCommand = new GetMatch(repo);
+            var match = getMatchCommand.Execute(year, roundNumber, matchNumber);
 
             Assert.IsNotNull(match);
             Assert.AreEqual(homeTeam, match.HomeTeam);

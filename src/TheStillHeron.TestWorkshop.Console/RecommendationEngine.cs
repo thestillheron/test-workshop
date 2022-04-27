@@ -7,18 +7,16 @@ namespace TheStillHeron.TestWorkshop.Console
 {
     public class RecommendationEngine
     {
-        private IConfiguration _config;
+        private IWeatherApiClient _apiClient;
 
-        public RecommendationEngine(IConfiguration config)
+        public RecommendationEngine(IWeatherApiClient apiClient)
         {
-            // ex.1
-            _config = config;
+            _apiClient = apiClient;
         }
+
         public async Task<string> GetRecommendation()
         {
-            // ex.1
-            var apiClient = new WeatherApiClient(_config);
-            var currentWeather = await apiClient.GetCurrentWeather();
+            var currentWeather = await _apiClient.GetCurrentWeather();
             var feelsLike = currentWeather.Main.FeelsLike;
             var conditions = currentWeather.Weather.Select(x => x.Main).Aggregate((left, right) => $"{left} {right}");
 
